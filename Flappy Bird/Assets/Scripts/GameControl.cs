@@ -33,7 +33,7 @@ public class GameControl : MonoBehaviour
 	
 	void Update ()
 	{
-		if (gameOver == true && Input.GetMouseButtonDown (0))
+		if (gameOver && Input.GetMouseButtonDown (0))
 		{
 			SceneManager.LoadScene (SceneManager.GetActiveScene ().buildIndex);
 		}
@@ -51,14 +51,15 @@ public class GameControl : MonoBehaviour
 
 	public void BirdDied ()
 	{
-		gameOverText.SetActive (true);
 		gameOver = true;
+		gameOverText.SetActive (true);
 	}
 
 	public bool IsGameOver()
 	{
 		return gameOver;
 	}
+
 	public float GetScrollSpeed()
 	{
 		return scrollSpeed;
