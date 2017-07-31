@@ -25,10 +25,19 @@ public class CollectibleController : MonoBehaviour
         verticalSpeed = Random.Range(minVerticalSpeed, maxVerticalSpeed);
         rotationSpeed = Random.Range(minRotationSpeed, maxRotationSpeed);
 	}
+
+	private void Start()
+	{
+		transform.Rotate(45,0,35);
+	}
 	
 	private void Update ()
     {
-        if (transform.position.y < 0f && verticalSpeed < 0f || transform.position.y > 0.7f && verticalSpeed > 0f) verticalSpeed *= -1;
+		if (transform.position.y < 0f && verticalSpeed < 0f ||
+		          transform.position.y > 0.7f && verticalSpeed > 0f)
+		{
+			verticalSpeed *= -1;
+		}
         movement = new Vector3(0f, verticalSpeed, 0f);
         rotation = new Vector3(0f, rotationSpeed, 0f);
 	}
