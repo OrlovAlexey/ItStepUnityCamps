@@ -24,8 +24,11 @@ public class GameController : MonoBehaviour
             Destroy(gameObject);
         }
 
-        scores = 0;
-        scoreText.text = scores.ToString("D6");
+		scores = 0;
+		scoreText = GameObject.Find ("Score Text").GetComponent<Text>();
+		scoreText.text = scores.ToString("D6");
+		winText = GameObject.Find ("Win Text");
+		winText.SetActive (false);
 	}
 
     private void Update()
