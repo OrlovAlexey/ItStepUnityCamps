@@ -1,1 +1,4 @@
-sceneSetups: []
+sceneSetups:
+- path: Assets/_Completed Game/MainRef.unity
+  isLoaded: 1
+  isActive: 1
