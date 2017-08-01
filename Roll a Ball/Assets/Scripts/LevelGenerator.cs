@@ -1,52 +1,55 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System;
 using UnityEngine;
 
-[System.Serializable]
-public class ColorToPrefab {
+[Serializable]
+public class ColorToPrefab
+{
 
-	public Color color;
-	public GameObject prefab;
+	public Color colorInMap;
+	public GameObject prefabToCreate;
 }
 
-public class LevelGenerator : MonoBehaviour {
+public class LevelGenerator : MonoBehaviour
+{
 
-    [SerializeField]
-    private Texture2D map;
+	[SerializeField]
+	private Texture2D pixelMap;
 
-    [SerializeField]
-    private ColorToPrefab[] colorMappings;
-    private Vector3 mazeOffset = new Vector3((float)-8.5, 0, (float)-8.5);
+	[SerializeField]
+	private ColorToPrefab[] colorMappings;
+	private Vector3 mazeOffset = new Vector3 (-8.5f, 0, -8.5f);
 
 	// Use this for initialization
-	void Awake () {
-        GenerateLevel();
+	private void Awake ()
+	{
+		GenerateLevel ();
 	}
 
-    void GenerateLevel()
-    {
-        for (int x = 0; x < map.width; x++)
-        {
-            for (int y = 0; y < map.height; y++)
-            {
-                GenerateTile(x, y);
-            }
-        }
-    }
+	private void GenerateLevel ()
+	{
+		for (int x = 0; x < pixelMap.width; x++)
+		{
+			for (int y = 0; y < pixelMap.height; y++)
+			{
+				GenerateBlock (x, y);
+			}
+		}
+	}
 
-    void GenerateTile(int x, int y)
-    {
-        Color pixelColor = map.GetPixel(x, y);
+	private void GenerateBlock (int x, int y)
+	{
+		Color pixelColor = pixelMap.GetPixel (x, y);
 
-        if (pixelColor.a == 0) return;
+		if (pixelColor.a == 0)
+			return;
 
-        foreach (ColorToPrefab colorMapping in colorMappings)
-        {
-            if (colorMapping.color.Equals(pixelColor))
-            {
-                Vector3 position = new Vector3(x, 0, y);
-                Instantiate(colorMapping.prefab, position + mazeOffset, Quaternion.identity, transform);
-            }
-        }
-    }
+		foreach (ColorToPrefab colorMapping in colorMappings)
+		{
+			if (colorMapping.colorInMap.Equals (pixelColor))
+			{
+				Vector3 position = new Vector3 (x, 0, y);
+				Instantiate (colorMapping.prefabToCreate, position + mazeOffset, Quaternion.identity, transform);
+			}
+		}
+	}
 }

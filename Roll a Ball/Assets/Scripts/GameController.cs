@@ -1,47 +1,47 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.UI;
 
 public class GameController : MonoBehaviour
 {
 
-    public static GameController instance;
+	public static GameController instance;
 
-    private int scores;
-    [SerializeField]
-    private Text scoreText;
-    [SerializeField]
-    private GameObject winText;
+	private int playerScore;
+	[SerializeField]
+	private Text scoreText;
+	[SerializeField]
+	private GameObject winText;
 
-    private void Awake () {
-        if (instance == null)
-        {
-            instance = this;
-        }
-        else
-        {
-            Destroy(gameObject);
-        }
+	private void Awake ()
+	{
+		if (instance == null)
+		{
+			instance = this;
+		} else
+		{
+			Destroy (gameObject);
+		}
 
-		scores = 0;
-		scoreText = GameObject.Find ("Score Text").GetComponent<Text>();
-		scoreText.text = scores.ToString("D6");
+		playerScore = 0;
+
+		scoreText = GameObject.Find ("Score Text").GetComponent<Text> ();
+		scoreText.text = playerScore.ToString ("D6");
+
 		winText = GameObject.Find ("Win Text");
 		winText.SetActive (false);
 	}
 
-    private void Update()
-    {
-        if (!GameObject.FindWithTag("Collectible"))
-        {
-            winText.SetActive(true);
-        }
-    }
+	private void Update ()
+	{
+		if (!GameObject.FindWithTag ("Collectible"))
+		{
+			winText.SetActive (true);
+		}
+	}
 
-    public void GetScore()
-    {
-        scores++;
-        scoreText.text = scores.ToString("D6");
-    }
+	public void GetScore ()
+	{
+		playerScore++;
+		scoreText.text = playerScore.ToString ("D6");
+	}
 }

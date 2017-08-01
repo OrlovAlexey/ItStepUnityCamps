@@ -1,40 +1,38 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
 
-    [SerializeField]
-    private int speed = 10;
-    private Rigidbody rb;
-    private int moveVertical;
-    private int moveHorizontal;
-    private Vector3 movement;
+	[SerializeField]
+	private int playerSpeed = 200;
+	private Rigidbody playerRigidbody;
+	private int playerVerticalMovement;
+	private int playerHorizontalMovement;
+	private Vector3 playerMovement;
 
 	private void Awake ()
-    {
-        rb = GetComponent<Rigidbody>();
+	{
+		playerRigidbody = GetComponent<Rigidbody> ();
 	}
-	
+
 	private void Update ()
-    {
-        moveHorizontal = (int) Input.GetAxis("Horizontal");
-        moveVertical = (int) Input.GetAxis("Vertical");
-        movement =new Vector3 (moveHorizontal, 0.0f, moveVertical);
-    }
+	{
+		playerHorizontalMovement = (int)Input.GetAxisRaw ("Horizontal");
+		playerVerticalMovement = (int)Input.GetAxisRaw ("Vertical");
+		playerMovement = new Vector3 (playerHorizontalMovement, 0.0f, playerVerticalMovement);
+	}
 
-    private void FixedUpdate()
-    {
-        rb.AddForce(movement * speed * Time.deltaTime);
-    }
+	private void FixedUpdate ()
+	{
+		playerRigidbody.AddForce (playerMovement * playerSpeed * Time.deltaTime);
+	}
 
-    private void OnTriggerEnter(Collider other)
-    {
-        if (other.CompareTag("Collectible"))
-        {
-            GameController.instance.GetScore();
-            Destroy(other.gameObject);
-        }
-    }
+	private void OnTriggerEnter (Collider other)
+	{
+		if (other.CompareTag ("Collectible"))
+		{
+			GameController.instance.GetScore ();
+			Destroy (other.gameObject);
+		}
+	}
 }

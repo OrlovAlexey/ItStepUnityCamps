@@ -1,50 +1,48 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class CollectibleController : MonoBehaviour
 {
-    [SerializeField]
-    private float minVerticalSpeed = 0.5f;
-    [SerializeField]
-    private float maxVerticalSpeed = 1f;
+	[SerializeField]
+	private float collectibleMinimumVerticalSpeed = 0.5f;
+	[SerializeField]
+	private float collectibleMaximumVerticalSpeed = 1f;
 
-    private float verticalSpeed;
-    private Vector3 movement;
+	private float collectibleVerticalSpeed;
+	private Vector3 collectibleMovement;
 
-    [SerializeField]
-    private float minRotationSpeed = -60f;
-    [SerializeField]
-    private float maxRotationSpeed = 60f;
+	[SerializeField]
+	private float collectibleMinimumRotationSpeed = -60f;
+	[SerializeField]
+	private float collectibleMaximumRotationSpeed = 60f;
 
-    private float rotationSpeed;
-    private Vector3 rotation;
-    
-    private void Awake ()
-    {
-        verticalSpeed = Random.Range(minVerticalSpeed, maxVerticalSpeed);
-        rotationSpeed = Random.Range(minRotationSpeed, maxRotationSpeed);
-	}
+	private float collectibleRotationSpeed;
+	private Vector3 collectibleRotation;
 
-	private void Start()
+	private void Awake ()
 	{
-		transform.Rotate(45,0,35);
-	}
-	
-	private void Update ()
-    {
-		if (transform.position.y < 0f && verticalSpeed < 0f ||
-		          transform.position.y > 0.7f && verticalSpeed > 0f)
-		{
-			verticalSpeed *= -1;
-		}
-        movement = new Vector3(0f, verticalSpeed, 0f);
-        rotation = new Vector3(0f, rotationSpeed, 0f);
+		collectibleVerticalSpeed = Random.Range (collectibleMinimumVerticalSpeed, collectibleMaximumVerticalSpeed);
+		collectibleRotationSpeed = Random.Range (collectibleMinimumRotationSpeed, collectibleMaximumRotationSpeed);
 	}
 
-    private void FixedUpdate()
-    {
-        transform.Translate(movement * Time.deltaTime, Space.World);
-        transform.Rotate(rotation * Time.deltaTime, Space.World);
-    }
+	private void Start ()
+	{
+		transform.Rotate (45, 0, 35);
+	}
+
+	private void Update ()
+	{
+		if (transform.position.y < 0f && collectibleVerticalSpeed < 0f ||
+		    transform.position.y > 0.6f && collectibleVerticalSpeed > 0f)
+		{
+			collectibleVerticalSpeed *= -1;
+		}
+		collectibleMovement = new Vector3 (0f, collectibleVerticalSpeed, 0f);
+		collectibleRotation = new Vector3 (0f, collectibleRotationSpeed, 0f);
+	}
+
+	private void FixedUpdate ()
+	{
+		transform.Translate (collectibleMovement * Time.deltaTime, Space.World);
+		transform.Rotate (collectibleRotation * Time.deltaTime, Space.World);
+	}
 }
