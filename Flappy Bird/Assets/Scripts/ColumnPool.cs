@@ -8,16 +8,16 @@ public class ColumnPool : MonoBehaviour
 	[SerializeField]
 	private GameObject columnPrefab;
 	[SerializeField]
-	private float spawnRate = 4f;
+	private float columnSpawnRate = 4f;
 	[SerializeField]
-	private float columnMin = -2.5f;
+	private float columnMinYPosition = -2.5f;
 	[SerializeField]
-	private float columnMax = 1.5f;
+	private float columnMaxYPosition = 1.5f;
 
 	private GameObject[] columns;
 	private Vector2 objectPoolPosition = new Vector2 (-15f, -25f);
 	private float timeSinceLastSpawn = 4f;
-	private float spawnXPosition = 10f;
+	private float columnSpawnXPosition = 10f;
 	private int currentColumn = 0;
 
 	void Start ()
@@ -28,16 +28,16 @@ public class ColumnPool : MonoBehaviour
 			columns [i] = (GameObject)Instantiate (columnPrefab, objectPoolPosition, Quaternion.identity);
 		}
 	}
-	
+
 	void Update ()
 	{
 		timeSinceLastSpawn += Time.deltaTime;
 
-		if (!GameControl.instance.IsGameOver () && timeSinceLastSpawn >= spawnRate)
+		if (!GameControl.instance.IsGameOver () && timeSinceLastSpawn >= columnSpawnRate)
 		{
 			timeSinceLastSpawn = 0f;
-			float spawnYPosition = Random.Range (columnMin, columnMax);
-			columns [currentColumn].transform.position = new Vector2 (spawnXPosition, spawnYPosition);
+			float columnSpawnYPosition = Random.Range (columnMinYPosition, columnMaxYPosition);
+			columns [currentColumn].transform.position = new Vector2 (columnSpawnXPosition, columnSpawnYPosition);
 			currentColumn++;
 			if (currentColumn >= columnPoolSize)
 			{

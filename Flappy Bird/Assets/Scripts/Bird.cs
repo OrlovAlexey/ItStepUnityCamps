@@ -8,9 +8,9 @@ public class Bird : MonoBehaviour
 	[SerializeField]
 	private Animator birdAnimator;
 	[SerializeField]
-	private float upForce = 200f;
+	private float birdUpForce = 200f;
 
-	private bool isDead = false;
+	private bool birdIsDead = false;
 
 	void Awake ()
 	{
@@ -20,12 +20,12 @@ public class Bird : MonoBehaviour
 
 	void Update ()
 	{
-		if (isDead == false)
+		if (birdIsDead == false)
 		{
 			if (Input.GetMouseButtonDown (0))
 			{
 				birdRigidbody2D.velocity = Vector2.zero;
-				birdRigidbody2D.AddForce (new Vector2 (0f, upForce));
+				birdRigidbody2D.AddForce (new Vector2 (0f, birdUpForce));
 				birdAnimator.SetTrigger ("Flap");
 			}
 		}
@@ -34,7 +34,7 @@ public class Bird : MonoBehaviour
 	void OnCollisionEnter2D ()
 	{
 		birdRigidbody2D.velocity = Vector2.zero;
-		isDead = true;
+		birdIsDead = true;
 		birdAnimator.SetTrigger ("Die");
 		GameControl.instance.BirdDied ();
 	}

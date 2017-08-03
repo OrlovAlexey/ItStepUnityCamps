@@ -4,8 +4,13 @@ public class RepeatingBackground : MonoBehaviour
 {
 
 	[SerializeField]
-	private float groundHorizontalLength = 1f;
+	private float groundHorizontalLength = 0f;
 
+
+	void Start ()
+	{
+		groundHorizontalLength = gameObject.GetComponentInChildren<BoxCollider2D> ().size.x;
+	}
 
 	void Update ()
 	{
