@@ -39,6 +39,7 @@ GameObject:
   - component: {fileID: 54911086370787176}
   - component: {fileID: 64276313379536538}
   - component: {fileID: 114361713396809866}
+  - component: {fileID: 114328377060334526}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -205,7 +206,18 @@ MeshCollider:
   m_Convex: 1
   m_InflateMesh: 0
   m_SkinWidth: 0.01
-  m_Mesh: {fileID: 4300002, guid: 6b1c4ba2ebd9cf74fb9bf09e7c2cdfbc, type: 3}
+  m_Mesh: {fileID: 4300000, guid: 723958e4d4c4d644a889660f44bcbc9a, type: 3}
+--- !u!114 &114328377060334526
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1162097606333194}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bfcd2480422cab744b20c13c06e26a6a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114361713396809866
 MonoBehaviour:
   m_ObjectHideFlags: 1

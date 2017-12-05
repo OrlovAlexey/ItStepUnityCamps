@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-public class BoltsMover : MonoBehaviour
+public class HorizontalMover : MonoBehaviour
 {
 	[SerializeField]
 	private float speed;
