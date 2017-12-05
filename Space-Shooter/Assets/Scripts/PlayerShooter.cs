@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class PlayerShooter : MonoBehaviour
 {
@@ -13,14 +11,14 @@ public class PlayerShooter : MonoBehaviour
 
 
 	// Use this for initialization
-	private void Start ()
+	private void Start()
 	{
 		canShoot = true;
-		bolt = (GameObject) Resources.Load("Bolt");
+		bolt = (GameObject)Resources.Load("Bolt");
 	}
-	
+
 	// Update is called once per frame
-	private void Update ()
+	private void Update()
 	{
 		if (canShoot)
 		{
