@@ -28,10 +28,10 @@ public class PlayerShooter : MonoBehaviour
 				canShoot = false;
 			}
 		}
-		else AllowFire();
+		else HaltFire();
 	}
 
-	private void AllowFire()
+	private void HaltFire()
 	{
 		timer += Time.deltaTime;
 		if (timer >= fireRate)
@@ -39,6 +39,5 @@ public class PlayerShooter : MonoBehaviour
 			canShoot = true;
 			timer = 0.0f;
 		}
-		Debug.Log(timer);
 	}
 }
