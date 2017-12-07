@@ -2,6 +2,7 @@
 
 public class PlayerShooter : MonoBehaviour
 {
+	[SerializeField]
 	private GameObject bolt;
 	private Vector3 offset = new Vector3(0.8f, -0.08f, 0.0f);
 
@@ -14,7 +15,6 @@ public class PlayerShooter : MonoBehaviour
 	private void Start()
 	{
 		canShoot = true;
-		bolt = (GameObject)Resources.Load("Bolt");
 	}
 
 	// Update is called once per frame

@@ -2,14 +2,11 @@
 
 public class DestroyByContact : MonoBehaviour
 {
+	[SerializeField]
 	private GameObject asteroidExplosion;
+	[SerializeField]
 	private GameObject playerExplosion;
 
-	private void Start()
-	{
-		asteroidExplosion = (GameObject)Resources.Load("AsteroidExplosion");
-		playerExplosion = (GameObject)Resources.Load("PlayerExplosion");
-	}
 	private void OnTriggerEnter(Collider other)
 	{
 		if (other.CompareTag("Boundary")) return;

@@ -3,6 +3,7 @@ using UnityEngine;
 
 public class GameController : MonoBehaviour
 {
+	[SerializeField]
 	private GameObject hazard;
 	private Vector3 spawnPosition;
 	private int hazardsCount;
@@ -16,7 +17,6 @@ public class GameController : MonoBehaviour
 		hazardsCount = 5;
 		startWait = 1.0f;
 		spawnWait = 0.5f;
-		hazard = (GameObject)Resources.Load("Asteroid");
 		StartCoroutine(SpawnHazard());
 	}
 
