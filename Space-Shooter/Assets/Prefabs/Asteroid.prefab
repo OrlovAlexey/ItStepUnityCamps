@@ -142,8 +142,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8c639f3de8945f646a4efeac7e063c97, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  asteroidExplosion: {fileID: 0}
-  playerExplosion: {fileID: 0}
+  asteroidExplosion: {fileID: 1850871144701182, guid: f45284a1ecdb68b43a7897c918389a7e,
+    type: 2}
+  playerExplosion: {fileID: 1581556815145938, guid: a89757c5d0b74ea4787c74cdd4945af2,
+    type: 2}
 --- !u!114 &114569270387419748
 MonoBehaviour:
   m_ObjectHideFlags: 1
