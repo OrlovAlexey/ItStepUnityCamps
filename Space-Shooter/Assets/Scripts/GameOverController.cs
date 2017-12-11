@@ -8,12 +8,13 @@ public class GameOverController : MonoBehaviour
 	[SerializeField]
 	private GameObject gameOverText;
 	private bool isGameOver;
+	public float restart;
 	// Use this for initialization
 	private void Start()
 	{
 		gameOverText = GameObject.FindWithTag("GameOverText");
 		SetGameOver(false);
-
+		restart = 1.0f;
 	}
 
 	public void SetGameOver(bool _gameOver)
@@ -25,14 +26,22 @@ public class GameOverController : MonoBehaviour
 	{
 		if (isGameOver)
 		{
-			if (Input.GetButtonDown("Fire1"))
+			if (restart > 0)
 			{
-				SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+				restart -= Time.deltaTime;
 			}
 			else
 			{
-				Application.Quit();
+				if (Input.GetButtonDown("Fire1"))
+				{
+					SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+				}
+				else
+				{
+					Application.Quit();
+				}
 			}
+
 		}
 	}
 }
