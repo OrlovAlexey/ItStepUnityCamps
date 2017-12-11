@@ -146,8 +146,6 @@ MonoBehaviour:
     type: 2}
   playerExplosion: {fileID: 1581556815145938, guid: a89757c5d0b74ea4787c74cdd4945af2,
     type: 2}
-  gameController: {fileID: 114822854680950826, guid: e9ed04a411895e242b690828ffcecc82,
-    type: 2}
 --- !u!114 &114569270387419748
 MonoBehaviour:
   m_ObjectHideFlags: 1

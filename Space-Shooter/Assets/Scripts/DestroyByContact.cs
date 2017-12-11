@@ -7,11 +7,13 @@ public class DestroyByContact : MonoBehaviour
 	[SerializeField]
 	private GameObject playerExplosion;
 
-	private GameController gameController;
+	private ScoreController scoreController;
+	private GameOverController gameOverController;
 
 	private void Start()
 	{
-		gameController = GameObject.FindWithTag("GameController").GetComponent<GameController>();
+		scoreController = GameObject.FindWithTag("GameController").GetComponent<ScoreController>();
+		gameOverController = GameObject.FindWithTag("GameController").GetComponent<GameOverController>();
 	}
 
 	private void OnTriggerEnter(Collider other)
@@ -23,11 +25,13 @@ public class DestroyByContact : MonoBehaviour
 		else if (other.name == "Player")
 		{
 			Instantiate(playerExplosion, other.transform.position, Quaternion.identity);
+			gameOverController.SetGameOver(true);
+
 		}
 		else
 		{
-			gameController.AddScore(gameController.ReadAddedScore());
-			gameController.ShowScore();
+			scoreController.AddScore(scoreController.ReadAddedScore());
+			scoreController.ShowScore();
 		}
 		Instantiate(asteroidExplosion, transform.position, Quaternion.identity);
 		Destroy(other.gameObject);

@@ -1,9 +1,10 @@
 ﻿using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 
-public class GameController : MonoBehaviour
+public class HazardsController : MonoBehaviour
 {
+
 	[SerializeField]
 	private GameObject hazard;
 	private Vector3 spawnPosition;
@@ -12,19 +13,13 @@ public class GameController : MonoBehaviour
 	private float spawnWait;
 	private float waveWait;
 
-	private Text scoreText;
-	private int score;
-
 	// Use this for initialization
-	private void Start()
+	void Start()
 	{
 		hazardsCount = 5;
 		startWait = 1.0f;
 		spawnWait = 0.5f;
 		StartCoroutine(SpawnHazard());
-
-		scoreText = GameObject.FindWithTag("ScoreText").GetComponent<Text>();
-		score = 0;
 	}
 
 	IEnumerator SpawnHazard()
@@ -44,18 +39,8 @@ public class GameController : MonoBehaviour
 			hazardsCount++;
 		}
 	}
-
-	public int ReadAddedScore()
+	public int ReadHazardsCount()
 	{
 		return hazardsCount;
-	}
-
-	public void AddScore(int _score)
-	{
-		score += _score;
-	}
-	public void ShowScore()
-	{
-		scoreText.text = "Score: " + score;
 	}
 }
