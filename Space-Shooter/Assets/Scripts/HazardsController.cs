@@ -1,9 +1,9 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class HazardsController : MonoBehaviour
 {
+	private GameController gameController;
 
 	[SerializeField]
 	private GameObject hazard;
@@ -12,13 +12,17 @@ public class HazardsController : MonoBehaviour
 	private float startWait;
 	private float spawnWait;
 	private float waveWait;
+	private bool wavesStop;
 
 	// Use this for initialization
 	void Start()
 	{
+		gameController = GameObject.FindWithTag("GameController").GetComponent<GameController>();
+
 		hazardsCount = 5;
 		startWait = 1.0f;
 		spawnWait = 0.5f;
+		wavesStop = false;
 		StartCoroutine(SpawnHazard());
 	}
 
@@ -37,10 +41,23 @@ public class HazardsController : MonoBehaviour
 			waveWait = hazardsCount * 0.5f;
 			yield return new WaitForSeconds(waveWait);
 			hazardsCount++;
+			if (gameController.GetGameOver())
+			{
+				wavesStop = true;
+				break;
+			}
 		}
 	}
-	public int ReadHazardsCount()
+	public int GetHazardsCount()
 	{
 		return hazardsCount;
+	}
+
+	private void Update()
+	{
+		if (wavesStop && !GameObject.FindWithTag("Hazard"))
+		{
+			gameController.Restart();
+		}
 	}
 }

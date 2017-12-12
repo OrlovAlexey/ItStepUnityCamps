@@ -6,6 +6,8 @@ TagManager:
   tags:
   - ScoreText
   - GameOverText
+  - RestartText
+  - Hazard
   layers:
   - Default
   - TransparentFX
