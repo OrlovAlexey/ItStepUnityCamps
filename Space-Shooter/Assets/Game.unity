@@ -88,6 +88,7 @@ LightmapSettings:
     m_PVRFilteringAtrousPositionSigmaDirect: 0.5
     m_PVRFilteringAtrousPositionSigmaIndirect: 2
     m_PVRFilteringAtrousPositionSigmaAO: 1
+    m_ShowResolutionOverlay: 1
   m_LightingDataAsset: {fileID: 0}
   m_UseShadowmask: 1
 --- !u!196 &4
@@ -490,6 +491,11 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 114943789458113332, guid: e9ed04a411895e242b690828ffcecc82,
+        type: 2}
+      propertyPath: hazards.Array.size
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 4311522812160002, guid: e9ed04a411895e242b690828ffcecc82, type: 2}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -522,6 +528,24 @@ Prefab:
       propertyPath: m_RootOrder
       value: 4
       objectReference: {fileID: 0}
+    - target: {fileID: 114943789458113332, guid: e9ed04a411895e242b690828ffcecc82,
+        type: 2}
+      propertyPath: hazards.Array.data[0]
+      value: 
+      objectReference: {fileID: 1321661310691314, guid: 75bbb999d099ea447a0d9ce85074271e,
+        type: 2}
+    - target: {fileID: 114943789458113332, guid: e9ed04a411895e242b690828ffcecc82,
+        type: 2}
+      propertyPath: hazards.Array.data[1]
+      value: 
+      objectReference: {fileID: 1647192881231396, guid: ffbf0a8cd62f79f49a18b7de2c4f66dd,
+        type: 2}
+    - target: {fileID: 114943789458113332, guid: e9ed04a411895e242b690828ffcecc82,
+        type: 2}
+      propertyPath: hazards.Array.data[2]
+      value: 
+      objectReference: {fileID: 1383450495594806, guid: edb019b086531d045be90f38be2b0791,
+        type: 2}
     m_RemovedComponents:
     - {fileID: 114032214553251004, guid: e9ed04a411895e242b690828ffcecc82, type: 2}
     - {fileID: 114822854680950826, guid: e9ed04a411895e242b690828ffcecc82, type: 2}
