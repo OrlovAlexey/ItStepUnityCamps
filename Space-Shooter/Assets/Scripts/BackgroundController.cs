@@ -8,19 +8,19 @@ public class BackgroundController : MonoBehaviour
 	[SerializeField]
 	private float scrollSpeed;
 	private Vector3 startPosition;
-	private float tileSizeX;
+	private float scaleY;
 
 	// Use this for initialization
 	private void Start()
 	{
-		tileSizeX = transform.lossyScale.y;
-		Debug.Log(tileSizeX);
+		startPosition = transform.position;
+		scaleY = transform.localScale.y;
 	}
 
 	// Update is called once per frame
 	void Update()
 	{
-		float newPosition = Mathf.Repeat(Time.time * scrollSpeed, tileSizeX);
+		float newPosition = Mathf.Repeat(Time.time * scrollSpeed, scaleY);
 		transform.position = startPosition + (Vector3.right * newPosition);
 	}
 }
