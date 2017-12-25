@@ -4,11 +4,13 @@ public class GameController : MonoBehaviour
 {
 	[SerializeField]
 	private GameObject gameOverText;
+	[SerializeField]
 	private bool gameOver;
-
+	[SerializeField]
 	private GameObject restartText;
-
+	[SerializeField]
 	private HazardsController hazardsController;
+	[SerializeField]
 	private ScoreController scoreController;
 
 	// Use this for initialization
@@ -41,9 +43,9 @@ public class GameController : MonoBehaviour
 		return hazardsController.GetHazardsCount();
 	}
 
-	public void AddScore(int _score)
+	public void AddScore()
 	{
-		scoreController.AddScore(_score);
+		scoreController.AddScore(ReadAddedScore());
 	}
 
 	public void Restart()

@@ -6,7 +6,7 @@ public class DestroyByContact : MonoBehaviour
 	private GameObject asteroidExplosion;
 	[SerializeField]
 	private GameObject playerExplosion;
-
+	[SerializeField]
 	private GameController gameController;
 
 	private void Start()
@@ -28,7 +28,7 @@ public class DestroyByContact : MonoBehaviour
 		}
 		else if (other.name == "PlayerBolt(Clone)")
 		{
-			gameController.AddScore(gameController.ReadAddedScore());
+			gameController.AddScore();
 		}
 		Instantiate(asteroidExplosion, transform.position, Quaternion.identity);
 		Destroy(other.gameObject);

@@ -4,8 +4,7 @@ public class HorizontalMover : MonoBehaviour
 {
 	[SerializeField]
 	private float speed;
-
-	//private GameObject parent;
+	[SerializeField]
 	private Rigidbody rb;
 
 	// Use this for initialization

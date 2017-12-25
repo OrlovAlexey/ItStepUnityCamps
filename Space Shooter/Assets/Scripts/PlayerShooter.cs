@@ -4,11 +4,15 @@ public class PlayerShooter : MonoBehaviour
 {
 	[SerializeField]
 	private GameObject bolt;
+	[SerializeField]
 	private AudioSource audioSource;
+	[SerializeField]
 	private Vector3 offset = new Vector3(0.8f, -0.08f, 0.0f);
-
+	[SerializeField]
 	private bool canShoot;
+	[SerializeField]
 	private float fireRate = 0.25f;
+	[SerializeField]
 	private float timer;
 
 

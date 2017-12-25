@@ -8,15 +8,19 @@ public class PlayerMover : MonoBehaviour
 	private float xClamp = 7.5f, yClamp = 4.5f;
 	[SerializeField]
 	private float tilt = 10.0f;
-
+	[SerializeField]
 	private Rigidbody rb;
-
+	[SerializeField]
 	private float moveHorizontal;
+	[SerializeField]
 	private float moveVertical;
+	[SerializeField]
 	private Vector3 movement;
-
+	[SerializeField]
 	private float rotationX;
+	[SerializeField]
 	private float rotationY;
+	[SerializeField]
 	private float rotationZ;
 
 	// Use this for initialization

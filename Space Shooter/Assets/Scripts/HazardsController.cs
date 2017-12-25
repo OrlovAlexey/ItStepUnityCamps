@@ -3,15 +3,23 @@ using UnityEngine;
 
 public class HazardsController : MonoBehaviour
 {
+	[SerializeField]
 	private GameController gameController;
-
 	[SerializeField]
 	private GameObject[] hazards;
+	[SerializeField]
 	private Vector3 spawnPosition;
+	[SerializeField]
+	private float spawnPositionLimit = 4.5f;
+	[SerializeField]
 	private int hazardsCount;
+	[SerializeField]
 	private float startWait;
+	[SerializeField]
 	private float spawnWait;
+	[SerializeField]
 	private float waveWait;
+	[SerializeField]
 	private bool wavesStop;
 
 	// Use this for initialization
@@ -34,7 +42,7 @@ public class HazardsController : MonoBehaviour
 			for (int i = 0; i < hazardsCount; i++)
 			{
 				GameObject hazard = hazards[Random.Range(0, hazards.Length)];
-				spawnPosition = new Vector3(10.0f, Random.Range(-4.5f, 4.5f), 0.0f);
+				spawnPosition = new Vector3(10.0f, Random.Range(-spawnPositionLimit, spawnPositionLimit), 0.0f);
 				Instantiate(hazard, spawnPosition, Quaternion.identity);
 				yield return new WaitForSeconds(spawnWait);
 

@@ -7,7 +7,9 @@ public class BackgroundController : MonoBehaviour
 
 	[SerializeField]
 	private float scrollSpeed;
+	[SerializeField]
 	private Vector3 startPosition;
+	[SerializeField]
 	private float scaleY;
 
 	// Use this for initialization
