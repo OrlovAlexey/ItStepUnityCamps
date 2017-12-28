@@ -134,6 +134,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameOverText: {fileID: 0}
+  gameOver: 0
+  restartText: {fileID: 0}
+  hazardsController: {fileID: 0}
+  scoreController: {fileID: 0}
 --- !u!114 &114943789458113332
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -145,7 +149,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 28c5449123b1fa145b44efef2104db3f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gameController: {fileID: 0}
   hazards:
   - {fileID: 1321661310691314, guid: 75bbb999d099ea447a0d9ce85074271e, type: 2}
   - {fileID: 1647192881231396, guid: ffbf0a8cd62f79f49a18b7de2c4f66dd, type: 2}
   - {fileID: 1383450495594806, guid: edb019b086531d045be90f38be2b0791, type: 2}
+  spawnPosition: {x: 0, y: 0, z: 0}
+  spawnPositionLimit: 4.5
+  hazardsCount: 0
+  startWait: 0
+  spawnWait: 0
+  waveWait: 0
+  wavesStop: 0
