@@ -66,7 +66,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   columnPoolSize: 5
-  columnPrefab: {fileID: 0}
+  columnPrefab: {fileID: 1481056099505156, guid: f5f8b82bf83ef2a438ac97ecc1a0b7c2,
+    type: 2}
   columnSpawnRate: 4
   columnMinYPosition: -2.5
   columnMaxYPosition: 1.5
