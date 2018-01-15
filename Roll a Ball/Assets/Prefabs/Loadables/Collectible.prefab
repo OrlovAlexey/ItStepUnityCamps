@@ -20,9 +20,10 @@ GameObject:
   m_Component:
   - component: {fileID: 4520165098775394}
   - component: {fileID: 33139608144943430}
-  - component: {fileID: 65381141062849418}
   - component: {fileID: 23284605179642156}
   - component: {fileID: 114331862154059340}
+  - component: {fileID: 136245921797925124}
+  - component: {fileID: 54721017478049412}
   m_Layer: 0
   m_Name: Collectible
   m_TagString: Collectible
@@ -36,13 +37,13 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1890007809835206}
-  m_LocalRotation: {x: 0.36497167, y: -0.1150751, z: 0.27781588, w: 0.8811196}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -4.5, y: 0, z: -8.5}
-  m_LocalScale: {x: 0.25, y: 0.25, z: 0.25}
+  m_LocalScale: {x: 0.9, y: 0.9, z: 0.3}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 45, y: 0, z: 35}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!23 &23284605179642156
 MeshRenderer:
   m_ObjectHideFlags: 1
@@ -83,19 +84,22 @@ MeshFilter:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1890007809835206}
-  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!65 &65381141062849418
-BoxCollider:
+  m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!54 &54721017478049412
+Rigidbody:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1890007809835206}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 2
 --- !u!114 &114331862154059340
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -107,7 +111,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ae0b85792cce33f4594c650514473dd8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  collectibleMinimumVerticalSpeed: 0.5
-  collectibleMaximumVerticalSpeed: 1
-  collectibleMinimumRotationSpeed: -60
-  collectibleMaximumRotationSpeed: 60
+  collectibleRotationSpeedLimit: 120
+--- !u!136 &136245921797925124
+CapsuleCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1890007809835206}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  m_Radius: 0.12
+  m_Height: 1
+  m_Direction: 0
+  m_Center: {x: 0, y: 0, z: 0}
